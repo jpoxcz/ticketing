@@ -46,8 +46,7 @@
   },
   "config": {
     "mongodbMemoryServer": {
-      "version": "4.2.3",
-      "disablePostinstall": "1"
+      "version": "4.2.3"
     }
   }
 }
