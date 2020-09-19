@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: exipiration-redis-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: exipiration-redis
+  template:
+    metadata:
+      labels:
+        app: exipiration-redis
+    spec:
+      containers:
+        - name: exipiration-redis
+          image: redis
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: exipiration-redis-srv
+spec:
+  selector:
+    app: exipiration-redis
+  ports:
+    - name: redis
+      protocol: TCP
+      port: 6379
+      targetPort: 6379
